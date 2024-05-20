@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.floweasy.Fragment.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_nextFragment"
+            app:destination="@id/nextFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.floweasy.Fragment.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/privacyFragment"
+        android:name="com.example.floweasy.Fragment.PrivacyFragment"
+        android:label="Privacy"
+        tools:layout="@layout/fragment_privacy" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.floweasy.Fragment.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nextFragment"
+        android:name="com.example.floweasy.Fragment.NextFragment"
+        android:label="Next"
+        tools:layout="@layout/fragment_next" />
+</navigation>

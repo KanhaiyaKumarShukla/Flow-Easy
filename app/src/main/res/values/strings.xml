@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Flow Easy</string>
+    <string name="welcome_fragment">Welcome to %1$s \n%2$s</string>
+    <string name="selected_card">You have selected %1$s</string>
+    <string name="home">Home</string>
+    <string name="about">About</string>
+    <string name="profile">Profile</string>
+    <string name="privacy">Privacy</string>
+    <string name="exit">Exit</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="welcome">Welcome! \nTo Flow Easy App</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="select_a_card">Select a card:</string>
+    <string name="card_1">Card 1</string>
+    <string name="card_2">Card 2</string>
+    <string name="card_3">Card 3</string>
+    <string name="proceed">Proceed</string>
+    <string name="nav_header_username">Hello! \n%1$s</string>
+    <string name="wave_image_description">wave image</string>
+</resources>
