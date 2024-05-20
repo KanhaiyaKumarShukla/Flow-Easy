@@ -25,11 +25,13 @@ class AboutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // accessing the sharedPreferences to use username in this screen
         val sharedPreferences = requireActivity().getSharedPreferences("UsersPrefs", Context.MODE_PRIVATE)
         val username = when(val _username=sharedPreferences.getString("username", "Mr/Mrs X")){
             "Mr/Mrs X"->""
             else ->_username
         }
+        // using username in the text view
         binding.welcomeTextView.text=getString(R.string.welcome_fragment, "About", username)
     }
 }

@@ -25,11 +25,13 @@ class NextFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // accessing the shared preferences
         val sharedPreferences = requireActivity().getSharedPreferences("UsersPrefs", Context.MODE_PRIVATE)
         val username = when(val _username=sharedPreferences.getString("username", "Mr/Mrs X")){
             "Mr/Mrs X"->""
             else ->_username
         }
+        // setting the username and selected card
         binding.welcomeTextView.text=getString(R.string.welcome_fragment, "Next", username)
         binding.selectedCardTextView.text=getString(R.string.selected_card, sharedPreferences.getString("selectedCard", "No Card"))
 

@@ -49,13 +49,16 @@ class MainActivity : AppCompatActivity() {
         // Setup NavigationUI to handle the NavigationView
         NavigationUI.setupWithNavController(binding.navView, navController)
 
+        // using shared preferences for storing the username and selected card, we are using the username to the navigation header profile
         val sharedPreferences = getSharedPreferences("UsersPrefs", Context.MODE_PRIVATE)
         val username = sharedPreferences.getString("username", "Mr/Mrs X")
+        // accessing the header of navigation drawer to update the user name
         val headerView = binding.navView.getHeaderView(0)
         val nameUserTextView = headerView.findViewById<TextView>(R.id.name_user)
         val userProfileAvatar=headerView.findViewById<ImageView>(R.id.profile_iv)
         nameUserTextView.text = getString(R.string.nav_header_username, username)
 
+        // we have made the profile image clickable, it navigate to profile fragment
         userProfileAvatar.setOnClickListener {
             if(navController.currentDestination?.id== R.id.profileFragment) return@setOnClickListener
             navController.navigate(R.id.profileFragment)
@@ -63,13 +66,14 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        // Use the retrieved data
+        // navigating the fragments by handling the action on navigation drawer
 
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> {
-                    // Handle the action
+                    // Handle the action to home screen
                     if(navController.currentDestination?.id== R.id.homeFragment){
+                        // if we are on the same screen no need to navigate
                         drawerLayout.closeDrawers()
                         return@setNavigationItemSelectedListener true
                     }
@@ -77,8 +81,9 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_about -> {
-                    // Handle the action
+                    // Handle the action to about screen
                     if(navController.currentDestination?.id== R.id.aboutFragment){
+                        // if we are on the same screen no need to navigate
                         drawerLayout.closeDrawers()
                         return@setNavigationItemSelectedListener true
                     }
@@ -86,8 +91,9 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_privacy -> {
-                    // Handle the action
+                    // Handle the action to privacy
                     if(navController.currentDestination?.id== R.id.privacyFragment){
+                        // if we are on the same screen no need to navigate
                         drawerLayout.closeDrawers()
                         return@setNavigationItemSelectedListener true
                     }
@@ -97,6 +103,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_profile -> {
                     // Handle the action to navigate to profile
                     if(navController.currentDestination?.id== R.id.profileFragment){
+                        // if we are on the same screen no need to navigate
                         drawerLayout.closeDrawers()
                         return@setNavigationItemSelectedListener true
                     }
@@ -104,6 +111,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_exit ->{
+                    // handle the action to exit
                     setAlertDialog()
                     true
                 }
@@ -117,6 +125,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun setAlertDialog(){
+        // using alert dialog
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Exit?")
         builder.setIcon(R.drawable.ic_exit_blue_24)
@@ -153,6 +162,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun clearSharedPreferences() {
+        // clearing the shared preferences
         val sharedPreferences = getSharedPreferences("UsersPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.clear()

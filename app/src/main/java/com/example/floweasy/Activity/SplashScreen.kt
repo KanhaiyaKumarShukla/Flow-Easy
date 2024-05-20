@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.WindowManager
 import com.example.floweasy.R
 
+// splash screen
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
